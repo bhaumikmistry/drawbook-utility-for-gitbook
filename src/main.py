@@ -38,6 +38,7 @@ def createDir(path,dir):
 def moveFile(src_path,dst_path):
     if exists(src_path):
         rename(src_path,dst_path)
+        return True
     else:
         return False
 
@@ -71,13 +72,14 @@ def main():
     res_path = path+"res/"
 
     # move create edit 
-    for i in image_list_in_path:
-        src_file_name = ""
-        dst_file_name = ""
+    for file in image_list_in_path:
+        src_file_name = path+file
+        dst_file_name = res_path+file
+        moveFile(src_file_name,dst_file_name)
         markdown_file_name = ""
         markdown_file_name = ""
         readme_link_text = ""
-        print(i)
+        print(file)
 
 
 if __name__ == "__main__":
