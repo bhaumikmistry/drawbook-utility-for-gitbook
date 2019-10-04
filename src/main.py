@@ -75,10 +75,19 @@ def main():
     for file in image_list_in_path:
         src_file_name = path+file
         dst_file_name = res_path+file
+
+        file_without_ext,ext = splitext(file)
+        markdown_file_to_link = file_without_ext+".md"
+        createMarkDown(path,markdown_file_to_link)
+
+        res_link_relative_path = "res/"+file
+        text_to_append = "![image]("+res_link_relative_path+") \n"
+        appendToMarkDown(path+markdown_file_to_link,text_to_append)
+
+        text_to_append_readme = "   - ["+file_without_ext+"]"+"("+markdown_file_to_link+")"
+        appendToMarkDown(readme_path,text_to_append_readme)
         moveFile(src_file_name,dst_file_name)
-        markdown_file_name = ""
-        markdown_file_name = ""
-        readme_link_text = ""
+
         print(file)
 
 
