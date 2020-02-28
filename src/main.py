@@ -12,6 +12,7 @@ def createMarkDown(path,filename):
     else:
         print("The file %s exists" % path)
         return True
+    return False
 
 def appendToMarkDown(filepath,text):
     if exists(filepath):
@@ -19,6 +20,7 @@ def appendToMarkDown(filepath,text):
         text+="\n"
         my_file.write(text)
         my_file.close()
+        return True
     else:
         return False
 
@@ -50,7 +52,7 @@ def main():
     if(isdir(path)):
         content_list_in_path = listdir(path)
 
-    ## hols image names
+    ## holds image names
     image_list_in_path = []
 
     ## get all the files in the path
